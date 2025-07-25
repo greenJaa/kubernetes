@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /srv/nfs/shared
+    server: 10.42.0.1  # <-- Replace with actual IP of NFS server
+  persistentVolumeReclaimPolicy: Retain
+

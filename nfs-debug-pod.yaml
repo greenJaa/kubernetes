@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-debug
+spec:
+  containers:
+  - name: nfs-debug
+    image: busybox
+    command: ["sleep", "3600"]
+    securityContext:
+      privileged: true
+    volumeMounts:
+      - name: host-mount
+        mountPath: /mnt
+  volumes:
+    - name: host-mount
+      emptyDir: {}
+  restartPolicy: Never
+

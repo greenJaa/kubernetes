@@ -1,0 +1,112 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-07-27T14:46:39Z"
+  labels:
+    run: details-app
+  name: details-app
+  namespace: dev
+  resourceVersion: "24854"
+  uid: 20b799aa-7125-4fe6-8095-9df316bc823c
+spec:
+  containers:
+  - image: greenzmey/details-app:latest
+    imagePullPolicy: Always
+    name: details-app
+    ports:
+    - containerPort: 7070
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-j4bwm
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: zmey
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-j4bwm
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-27T14:46:41Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-27T14:46:39Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-27T14:46:41Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-27T14:46:41Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-27T14:46:39Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://8fab92cdd7351f669eb124079a7535426cbeeb6008cda2b7628039ed3958754c
+    image: docker.io/greenzmey/details-app:latest
+    imageID: docker.io/greenzmey/details-app@sha256:09292e9e51127065e223275dd496288ede68e67a3e02438f1f979c912654f086
+    lastState: {}
+    name: details-app
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2025-07-27T14:46:40Z"
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-j4bwm
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.68.108
+  hostIPs:
+  - ip: 192.168.68.108
+  phase: Running
+  podIP: 10.42.0.47
+  podIPs:
+  - ip: 10.42.0.47
+  qosClass: BestEffort
+  startTime: "2025-07-27T14:46:39Z"

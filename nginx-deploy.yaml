@@ -6,11 +6,10 @@ metadata:
   labels:
     app: nginx-deploy
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: nginx-deploy
-  strategy: {}
   template:
     metadata:
       labels:
@@ -18,12 +17,17 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: greenzmey/details-app:latest
+          image: nginx
+          ports:
+            - containerPort: 8080
           volumeMounts:
             - name: nginx-conf
-              mountPath: /etc/nginx/sites-available
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
             - name: variables
               mountPath: /dir
+            - name: nfs-storage
+              mountPath: /mnt/nfs
       volumes:
         - name: nginx-conf
           configMap:
@@ -31,4 +35,6 @@ spec:
         - name: variables
           configMap:
             name: declare-vars
-
+        - name: nfs-storage
+          persistentVolumeClaim:
+            claimName: nfs-pvc

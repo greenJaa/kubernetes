@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-custom-config
+  namespace: dev
+data:
+  nginx.conf: |
+    events {}
+
+    http {
+      server {
+        listen 1234;
+        location / {
+          return 200 "Hello from Nginx on port 1234!";
+        }
+      }
+    }
+                                                                      
+                                                                                                                                                                                             
+                                                                                                                                                                                             
+                                                                                                                                                                                             
+                                                                                                                                                                                             
+                                                                                                                                                                                             
+                                                                                                                                                                                             
+                                                                                                                                                                                           
+

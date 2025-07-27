@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: details-app
+  namespace: dev
+  labels:
+    app: details-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: details-app
+  template:
+    metadata:
+      labels:
+        app: details-app
+    spec:
+      containers:
+        - name: details-app
+          image: greenzmey/details-app:latest
+          ports:
+            - containerPort: 7070
+

@@ -11,16 +11,10 @@ data:
       server {
         listen 1234;
         location / {
-          return 200 "Hello from Nginx on port 1234!";
+          root /usr/share/nginx/html;
+          index index.html;
         }
       }
     }
-                                                                      
-                                                                                                                                                                                             
-                                                                                                                                                                                             
-                                                                                                                                                                                             
-                                                                                                                                                                                             
-                                                                                                                                                                                             
-                                                                                                                                                                                             
-                                                                                                                                                                                           
+                                                                                                                                                                                         
 

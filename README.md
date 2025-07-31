@@ -20,3 +20,10 @@ This project sets up an Nginx deployment on Kubernetes that mounts a shared NFS 
    sudo exportfs -ra
    sudo systemctl enable nfs-server --now
 
+    Run the install script:
+
+sudo bash install.sh
+
+Test access:
+
+curl http://<nginx-pod-ip>:8080

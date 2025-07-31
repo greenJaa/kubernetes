@@ -9,7 +9,8 @@ This project sets up an Nginx deployment on Kubernetes that mounts a shared NFS 
 - kubectl access to the cluster
 
 ## Steps
-   clone the project
+   Clone the project
+   
    Set up the NFS server:
    ```bash
    sudo apt update

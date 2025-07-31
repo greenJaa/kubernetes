@@ -31,7 +31,9 @@ if [ ! -f "$DECLARE_VARS_FILE" ]; then
   echo "✓ Created empty $DECLARE_VARS_FILE"
 fi
 
-kubectl create configmap "$CONFIGMAP_NAME" --from-file=nginx.conf=nginx.conf -n "$NAMESPACE"
+echo "==> Applying ConfigMap from nginx-configmap.yaml..."
+kubectl apply -f nginx-configmap.yaml -n "$NAMESPACE"
+
 kubectl create configmap "$VARIABLES_CONFIGMAP" --from-file=variables="$DECLARE_VARS_FILE" -n "$NAMESPACE"
 
 # Test configmaps

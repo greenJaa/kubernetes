@@ -19,7 +19,7 @@ spec:
         - name: nginx
           image: nginx
           ports:
-            - containerPort: 8080
+            - containerPort: 1234
           volumeMounts:
             - name: nginx-conf
               mountPath: /etc/nginx/nginx.conf
@@ -32,9 +32,13 @@ spec:
         - name: nginx-conf
           configMap:
             name: nginx-custom-config
+            items:
+              - key: nginx.conf
+                path: nginx.conf
         - name: variables
           configMap:
             name: declare-vars
         - name: nfs-storage
           persistentVolumeClaim:
             claimName: nfs-pvc
+

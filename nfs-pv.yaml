@@ -9,6 +9,6 @@ spec:
     - ReadWriteMany
   nfs:
     path: /srv/nfs/shared
-    server: 10.42.0.1  # <-- Replace with actual IP of NFS server
+    server: 192.168.68.106  # <-- Your host's LAN IP
   persistentVolumeReclaimPolicy: Retain
 

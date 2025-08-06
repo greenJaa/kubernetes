@@ -3,7 +3,7 @@
 This project sets up an Nginx deployment on Kubernetes that mounts a shared NFS volume.
 
 ## Requirements
-
+- Able to sudo 
 - Kubernetes cluster
 - NFS server installed and running
 - kubectl access to the cluster

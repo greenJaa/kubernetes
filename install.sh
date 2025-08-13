@@ -1,5 +1,16 @@
 #!/bin/bash
 
+##################### Start Safe Header ########################
+# Developed by Oleg Ischouk
+# Purpose: uninstall previosly created deployment  pv and pvc and 
+#resinstall them
+# Date 12.08.25
+# Version 2.0.0
+set -o errexit
+set -o nounset
+set -o pipefail
+#################### End Safe Header ###########################
+
 set -e
 
 NAMESPACE="dev"

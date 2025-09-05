@@ -11,7 +11,7 @@ This project sets up an Nginx deployment on Kubernetes that mounts a shared NFS 
 ## Steps
    Clone the project
    
-   Set up the NFS server:
+   Set up the NFS server and run install script:
    ```bash
    sudo apt update
    sudo apt install -y nfs-kernel-server

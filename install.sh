@@ -93,5 +93,5 @@ if [[ "$STATUS" != "Running" ]]; then
   exit 1
 fi
 
-echo "✅ All done."
+echo "All done."
 

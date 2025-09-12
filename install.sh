@@ -26,6 +26,7 @@ if kubectl get namespace "$NAMESPACE" &>/dev/null; then
   echo "✓ Namespace '$NAMESPACE' exists."
 else
   kubectl create namespace "$NAMESPACE"
+  kubectl get ns dev >/dev/null 2>&1 || kubectl create ns dev
   echo "✓ Namespace '$NAMESPACE' created."
 fi
 

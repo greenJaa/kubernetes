@@ -1,5 +1,5 @@
 # Nginx + NFS on Kubernetes
-
+Deletes nfs-pvc and nfs-pv
 This project sets up an Nginx deployment on Kubernetes that mounts a shared NFS volume.
 
 ## Requirements
